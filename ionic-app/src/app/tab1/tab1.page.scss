@@ -1,0 +1,26 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header {
+  background-color: #aa0606;
+}
+
+.flashSale ion-col {
+  display: flex;
+}
+
+.flashSale ion-img {
+  width: 77.5px;
+}
+.synopsis{
+  font-size:14px;
+  color:#3e3e3e;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.price{
+  font-size:16px;
+  color:#f00;
+}

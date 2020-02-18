@@ -1,0 +1,85 @@
+<ion-header class="header">
+    <ion-searchbar placeholder="商品名" howCancelButton="focus" color="light">
+    </ion-searchbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <!-- 轮播 -->
+        <ion-slides pager [options]="carouselImgOptions">
+            <ion-slide *ngFor="let item of carouselImg">
+                <ion-img [src]="item"></ion-img>
+            </ion-slide>
+        </ion-slides>
+        <!-- 四个导航小图 -->
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col *ngFor="let item of landscapeImg">
+                    <ion-img [src]="item.img" style="width: 48px;height: 48px;"></ion-img>
+                    <ion-text color="dark">
+                        {{item.title}}
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <!-- 中间图片 -->
+    </ion-card>
+    <ion-img
+        src="https://m.360buyimg.com/mobilecms/jfs/t1/109765/30/6078/144510/5e46b5c4E2e5c03e1/99ce20ea2891ceb3.gif">
+    </ion-img>
+    <!-- 限时抢购 -->
+    <ion-card>
+        <ion-item lines="none" *ngIf="flashSaleTime>0">
+            <ion-item lines="none">
+                限时抢购
+            </ion-item>
+            <ion-item lines="none">
+                0&nbsp;时
+            </ion-item>
+            <ion-item lines="none">
+                {{flashSaleTimeH}}&nbsp;分
+            </ion-item>
+            <ion-item lines="none">
+                {{flashSaleTime}}&nbsp;秒
+            </ion-item>
+        </ion-item>
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col size="3" *ngFor="let item of flashSale">
+                    <ion-img src="{{item.img}}" alt=""></ion-img>
+                    <ion-item lines="none">
+                        <ion-text color="danger" style="font-size: 14px;">
+                            ¥{{item.price}}
+                        </ion-text>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-text style="color: #999; font-size: 12px;text-decoration: line-through;">
+                            ¥{{item.longPrice}}
+                        </ion-text>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+<!-- 猜你喜欢 -->
+    <ion-card>
+        <ion-item lines="none">
+            <ion-label>猜你喜欢</ion-label>
+        </ion-item>
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col size="6" *ngFor="let item of guessWhatYouLike" routerLink="/details/{{item.lid}}">
+                    <ion-item lines="none">
+                        <ion-img src="{{item.img}}"></ion-img>
+                    </ion-item>
+                    <ion-item lines="none" class="synopsis">
+                        {{item.synopsis}}
+                    </ion-item>
+                    <ion-item lines="none" class="price">
+                        ¥{{item.price}}
+                    </ion-item>
+                </ion-col>
+                
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

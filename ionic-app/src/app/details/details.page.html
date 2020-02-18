@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-slides pager [options]="carouselImgOptions">
+    <ion-slide *ngFor="let item of details[lid-1].imgs">
+      <ion-img src="{{item}}"></ion-img>
+    </ion-slide>
+  </ion-slides>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label color="danger" class="price">¥{{details[lid-1].price}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label color="medium" class="del">¥{{details[lid-1].del}}</ion-label>
+    </ion-item>
+    <ion-item lines="none" class="dell">
+        {{details[lid-1].dell}}
+    </ion-item>
+  </ion-card>
+</ion-content>
+<ion-footer>
+    <ion-button color="warning" expand="full">
+      加入购物车
+    </ion-button>
+    <ion-button color="danger" expand="full">
+      立即购买
+    </ion-button>
+</ion-footer>
